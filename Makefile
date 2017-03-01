@@ -12,10 +12,9 @@ validate:
 	terraform validate ./deploy
 
 deploy: validate
-	#(cd deploy && \
-	#terraform apply -var "key_name=$(KEY_NAME)" -var "public_key_path=$(PUBLIC_KEY_PATH)" -var "aws_region=$(REGION)" -var "aws_ami=$(AMI)")
-	ssh -o "StrictHostKeyChecking=no" -t centos@$(shell terraform output -state=./deploy/terraform.tfstate ip) "$(<bootstrap.sh)"
-	bash bootstrap.sh
+	cd deploy && \
+	terraform apply -var "key_name=$(KEY_NAME)" -var "public_key_path=$(PUBLIC_KEY_PATH)" -var "aws_region=$(REGION)" -var "aws_ami=$(AMI)"
+	bash ./scripts/deploy.sh
 
 
 destroy: validate
