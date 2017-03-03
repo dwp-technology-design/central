@@ -1,6 +1,6 @@
 adduser -m -r -U nexus
 
-yum -y update
+#yum -y update
 yum install -y wget
 
 cd ~

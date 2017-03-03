@@ -8,6 +8,9 @@ AMI="ami-f4634d92"
 #AMI="ami-7abd0209"
 REGION="eu-west-1"
 
+ips:
+	terraform output -state=./deploy/terraform.tfstate ip
+
 validate:
 	terraform validate ./deploy
 
