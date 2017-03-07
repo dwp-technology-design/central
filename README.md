@@ -2,6 +2,8 @@
 
 # Deployment Host Requirements
 
+Things that need to be configured to 'make deploy'.
+
 1. Install terraform & ensure binary is in path
 2. Ensure AWS keys are set in environment variables (for terraform & aws client use)
 3. Ensure date and time are correct on the host (AWS connection requirement).
